@@ -45,5 +45,5 @@ if __name__ == "__main__":
     f.close()
 
     f = open('./data/REN/RENtotaltext.pkl', 'wb')
-    pickle.dump(texts, f)
+    pickle.dump(totaltexts, f)
     f.close()
