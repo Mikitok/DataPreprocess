@@ -32,6 +32,7 @@ if __name__ == "__main__":
     texts = [re.sub(r"\n", "", text) for text in texts]
     texts = [re.sub(r"( )+", "", text) for text in texts]
 
+    totaltexts=data_helper.remove_words(texts, stopwords)
     texts, labels = data_helper.segment_sentence(texts, labels)
     texts = [data_helper.remove_words(text, stopwords) for text in texts]
 
@@ -39,6 +40,10 @@ if __name__ == "__main__":
     pickle.dump(labels,f)
     f.close()
 
-    f=open('./data/REN/RENtext_label.pkl','wb')
+    f=open('./data/REN/RENsentencetext.pkl','wb')
     pickle.dump(texts,f)
+    f.close()
+
+    f = open('./data/REN/RENtotaltext.pkl', 'wb')
+    pickle.dump(texts, f)
     f.close()
